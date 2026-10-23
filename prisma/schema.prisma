@@ -28,3 +28,17 @@ model Movimentacao {
   @@index([produtoId])
   @@map("movimentacao")
 }
+
+
+model Usuario {
+  id          Int      @id @default(autoincrement())
+  nome        String   @db.VarChar(100)
+  email       String   @unique @db.VarChar(150)
+  senhaHash   String   @map("senha_hash") @db.VarChar(255)
+  tipo        String   @default("operador") @db.VarChar(20)
+  criadoEm    DateTime @default(now()) @map("criado_em")
+  atualizadoEm DateTime @updatedAt @map("atualizado_em")
+
+  @@map("usuarios")
+}
+

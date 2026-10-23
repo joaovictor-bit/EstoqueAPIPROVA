@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import produtoRoutes from './routes/produtoRoutes.js';
 import movimentacaoRoutes from './routes/movimentacaoRoutes.js';
+import usuarioRoutes from "./routes/usuarioRoutes.js";
+
+
 import { errorHandler } from './middlewares/errorHandler.js';
 
 const app = express();
@@ -14,6 +17,7 @@ app.get('/teste', (req, res) => res.send('API funcionando!'));
 
 app.use('/produtos', produtoRoutes);
 app.use('/movimentacoes', movimentacaoRoutes);
+app.use("/usuarios", usuarioRoutes);
 
 app.use(errorHandler);
 
